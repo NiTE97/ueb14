@@ -17,7 +17,8 @@ public class Reservierung{
     }
 
     public void setRaum(Raum raum){
-
+        Reservierung reservierung = new Reservierung(beginn, ende);
+        raum.addReservierung(reservierung);
     }
 
     @Override

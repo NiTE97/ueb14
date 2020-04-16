@@ -11,6 +11,7 @@ public class Mitarbeiter extends Person{
     public void reserviere(Raum raum, Uhrzeit beginn, Uhrzeit ende, String bemerkung){
         Reservierung reservierung = new Reservierung(beginn, ende);
         reservierung.setBemerkung(bemerkung);
+        reservierung.setRaum(raum);
         raum.addReservierung(reservierung);
     }
 
