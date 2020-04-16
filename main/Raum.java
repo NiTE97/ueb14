@@ -49,8 +49,10 @@ public class Raum{
         String ausgabe;
         ausgabe = "Raum " + getGeb() + "-" + getEtage() + "." + getRaum();
         i = getAnzahlReservierungen();
-        if (i > 0){
-            ausgabe += reservierungen[i];
+        if (i >= 0) {
+            for (int p = 0; p <= i; p++) {
+                ausgabe += reservierungen[p];
+            }
         }
         return ausgabe;
     }
