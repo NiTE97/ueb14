@@ -17,7 +17,9 @@ public class Reservierung{
     }
 
     public void setRaum(Raum raum){
-        Reservierung reservierung = new Reservierung(beginn, ende);
+        String bemerkung = getBemerkung();
+        Reservierung reservierung = new Reservierung(getBeginn(), getEnde());
+        reservierung.setBemerkung(bemerkung);
         raum.addReservierung(reservierung);
     }
 

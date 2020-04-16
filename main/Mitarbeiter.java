@@ -12,7 +12,6 @@ public class Mitarbeiter extends Person{
         Reservierung reservierung = new Reservierung(beginn, ende);
         reservierung.setBemerkung(bemerkung);
         reservierung.setRaum(raum);
-        raum.addReservierung(reservierung);
     }
 
     @Override
