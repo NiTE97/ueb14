@@ -7,12 +7,6 @@ public class Reservierung{
         this.beginn = beginn;
         this.ende = ende;
     }
-    public Reservierung(Uhrzeit beginn, Uhrzeit ende, Raum raum, String bemerkung){
-        this.beginn = beginn;
-        this.ende = ende;
-        setRaum(raum);
-        setBemerkung(bemerkung);
-    }
 
     public void setBemerkung(String bemerkung){
         this.bemerkung = bemerkung;
@@ -26,9 +20,10 @@ public class Reservierung{
 
     }
 
+    @Override
     public String toString(){
         String ausgabe;
-        ausgabe = "gebucht von ";
+        ausgabe = "\n gebucht von " +  " von " + getBeginn() + " bis " + getEnde() + " für " + getBemerkung();
         return ausgabe;
     }
 
@@ -45,6 +40,7 @@ public class Reservierung{
         return ende;
     }
 
+    @Override
     public boolean equals(Object object){
         boolean equals = false;
         return equals;

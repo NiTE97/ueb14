@@ -14,13 +14,13 @@ public class Raum{
 
     }
 
+    @Override
     public boolean equals(Object object){
         boolean equals = false;
         return equals;
     }
 
     public Reservierung getReservierung(int index){
-        Reservierung reservierung;
         return null;
     }
 
@@ -29,6 +29,7 @@ public class Raum{
         return anzahl;
     }
 
+    @Override
     public String toString(){
         String ausgabe;
         ausgabe = "Raum " + getGeb() + "-" + getEtage() + "." + getRaum();
