@@ -9,7 +9,7 @@ public class Uhrzeit{
     //Konstruktor
     public Uhrzeit(int stunde, int minute){
         Validator.check(stunde < 0 || stunde >= 24, stundeErr);
-        Validator.check(minute < 0 || minute >= 59, minuteErr);
+        Validator.check(minute < 0 || minute > 59, minuteErr);
 
         this.stunde = stunde;
         this.minute = minute;
@@ -22,11 +22,6 @@ public class Uhrzeit{
         Uhrzeit uhrzeit = (Uhrzeit) object;
         return stunde == uhrzeit.stunde &&
                 minute == uhrzeit.minute;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(stunde, minute);
     }
 
     public String toString(){
