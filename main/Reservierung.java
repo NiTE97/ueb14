@@ -1,19 +1,35 @@
 import java.util.Objects;
-
+/**
+ * Klasse Reservierung
+ * 
+ * Autor Niklas Terwort && Tobias Steuer
+ */
 public class Reservierung{
+    /**
+     * Klassenattribute
+     */
     private String bemerkung;
     private Uhrzeit beginn;
     private Uhrzeit ende;
     private Raum raum;
     private Mitarbeiter mitarbeiter;
-
+    
+    /**
+     * Fehlermeldung
+     */
     private static final String bemerkungErr = "Die Bemerkung darf nicht leer sein!";
-
+    
+    /**
+     * Konstruktor
+     * param Uhrzeit beginn     Beginn
+     * param Uhrzeit ende       Ende
+     */
     public Reservierung(Uhrzeit beginn, Uhrzeit ende){
         this.beginn = beginn;
         this.ende = ende;
     }
-
+    
+    //Set-Methoden fuer Klassenattribute
     public void setBemerkung(String bemerkung){
         Validator.check(bemerkung == null || bemerkung.trim().isEmpty(), bemerkungErr);
         this.bemerkung = bemerkung;
@@ -26,7 +42,13 @@ public class Reservierung{
     public void setRaum(Raum raum){
         this.raum = raum;
     }
-
+    
+    /**
+     * Methode zum Ausgeben der Reservierung
+     * Form: gebucht von $Mitarbeiter von $Beginn bis $Ende fuer $Bemerkung
+     * 
+     * return ausgabe
+     */
     @Override
     public String toString(){
         String ausgabe;
@@ -50,7 +72,12 @@ public class Reservierung{
     public Raum getRaum() {
         return raum;
     }
-
+    
+    /**
+     * Methode zum Vergleichen von Objekten
+     * 
+     * return boolean
+     */
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;
