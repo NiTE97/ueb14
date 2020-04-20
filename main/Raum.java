@@ -46,6 +46,7 @@ public class Raum{
     }
 
     public Reservierung getReservierung(int index){
+        Validator.check(reservierungen[index] == null, indexErr);
         return reservierungen[index];
     }
 
@@ -69,7 +70,7 @@ public class Raum{
         ausgabe = "Raum " + getGeb() + "-" + getEtage() + "." + getRaum();
         i = getAnzahlReservierungen();
         if (reservierungen[0] != null) {
-            for (int p = 0; p <= i; p++) {
+            for (int p = 0; p < i; p++) {
                 ausgabe += getReservierung(p);
             }
         } else {

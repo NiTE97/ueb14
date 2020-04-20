@@ -6,6 +6,7 @@ public class Reservierung{
     private Uhrzeit ende;
     private Raum raum;
     private Mitarbeiter mitarbeiter;
+
     private static final String bemerkungErr = "Die Bemerkung darf nicht leer sein!";
 
     public Reservierung(Uhrzeit beginn, Uhrzeit ende){
@@ -15,7 +16,6 @@ public class Reservierung{
 
     public void setBemerkung(String bemerkung){
         Validator.check(bemerkung == null || bemerkung.trim().isEmpty(), bemerkungErr);
-
         this.bemerkung = bemerkung;
     }
 
@@ -34,18 +34,21 @@ public class Reservierung{
         return ausgabe;
     }
 
-    private Mitarbeiter getMitarbeiter() {
+    public Mitarbeiter getMitarbeiter() {
         return mitarbeiter;
     }
-
-    private String getBemerkung(){
+    public String getBemerkung(){
         return bemerkung;
     }
-    private Uhrzeit getBeginn(){
+    public Uhrzeit getBeginn(){
         return beginn;
     }
-    private Uhrzeit getEnde(){
+    public Uhrzeit getEnde(){
         return ende;
+    }
+
+    public Raum getRaum() {
+        return raum;
     }
 
     @Override

@@ -1,51 +1,37 @@
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+public class MitarbeiterTest {
 
-class MitarbeiterTest {
-
-    @org.junit.jupiter.api.Test
-    void konstuktorTest(){
+    @Test
+    public void konstuktorTest(){
         Mitarbeiter m1 = new Mitarbeiter("Max", "Mustermann", "max@htwsaar.de");
         assert m1.getEmail().equals("max@htwsaar.de");
         assert m1.getVorname().equals("Max");
         assert m1.getNachname().equals("Mustermann");
     }
 
-    @org.junit.jupiter.api.Test
-    void konstruktorExceptionTestVornameLeer() throws IllegalArgumentException{
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Mitarbeiter m1 = new Mitarbeiter("", "Mustermann", "max@htwsaar.de");
-        });
-        String expectedMessage = "Name darf nicht leer sein";
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
+    @Test (expected = IllegalArgumentException.class)
+    public void konstruktorExceptionTestVornameLeer() throws IllegalArgumentException{
+        Mitarbeiter m1 = new Mitarbeiter("", "Mustermann", "max@htwsaar.de");
     }
 
-    @org.junit.jupiter.api.Test
-    void konstruktorExceptionTestNachnameLeer() throws IllegalArgumentException{
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Mitarbeiter m1 = new Mitarbeiter("Max", "", "max@htwsaar.de");
-        });
-        String expectedMessage = "Name darf nicht leer sein";
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
+    @Test (expected = IllegalArgumentException.class)
+    public void konstruktorExceptionTestNachnameLeer() throws IllegalArgumentException{
+        Mitarbeiter m1 = new Mitarbeiter("Max", "", "max@htwsaar.de");
     }
 
 
-    @org.junit.jupiter.api.Test
-    void konstruktorExceptionTestEmailLeer() throws IllegalArgumentException{
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Mitarbeiter m1 = new Mitarbeiter("Max", "Mustermann", "");
-        });
-        String expectedMessage = "Email darf nicht leer sein";
-        String actualMessage = exception.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
+    @Test (expected = IllegalArgumentException.class)
+    public void konstruktorExceptionTestEmailLeer() throws IllegalArgumentException{
+        Mitarbeiter m1 = new Mitarbeiter("Max", "Mustermann", "");
     }
 
 
-    @org.junit.jupiter.api.Test
-    void reserviereTest() {
+    @Test
+    public void reserviereTest() {
         Mitarbeiter m1 = new Mitarbeiter("Max", "Mustermann", "max@htwsaar.de");
         Raum r1 = new Raum(18,0,1);
         m1.reserviere(r1, new Uhrzeit(12, 30), new Uhrzeit(14,30), "VOOP");
@@ -54,32 +40,32 @@ class MitarbeiterTest {
         assertTrue(actual.contains(expected));
     }
 
-    @org.junit.jupiter.api.Test
-    void testEqualsTrue() {
+    @Test
+    public void testEqualsTrue() {
         Mitarbeiter m1 = new Mitarbeiter ("Max", "Mustermann", "max@htwsaar.de");
         Mitarbeiter m2 = new Mitarbeiter ("Max", "Mustermann", "max@htwsaar.de");
-        assertTrue(m1.equals(m2));
+        assertEquals(m1, m2);
     }
     @Test
-    void testEqualsFalse() {
+    public void testEqualsFalse() {
         Mitarbeiter m1 = new Mitarbeiter ("Max", "Mustermann", "max@htwsaar.de");
         Mitarbeiter m2 = new Mitarbeiter ("Max", "AndererMustermann", "max@htwsaar.de");
-        assertFalse(m1.equals(m2));
+        assertNotEquals(m1, m2);
     }
 
-    @org.junit.jupiter.api.Test
-    void testToString() {
+    @Test
+    public void testToString() {
         Mitarbeiter m1 = new Mitarbeiter("Max", "Mustermann", "max@htwsaar.de");
         String expected = "Max Mustermann (max@htwsaar.de)";
         String actual = m1.toString();
-        assertTrue(actual.equals(expected));
+        assertEquals(actual, expected);
     }
 
-    @org.junit.jupiter.api.Test
-    void getEmail() {
+    @Test
+    public void getEmail() {
         Mitarbeiter m1 = new Mitarbeiter("Max", "Mustermann", "max@htwsaar.de");
         String expected = "max@htwsaar.de";
         String actual = m1.getEmail();
-        assertTrue(actual.equals(expected));
+        assertEquals(actual, expected);
     }
 }
