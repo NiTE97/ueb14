@@ -101,17 +101,17 @@ public class Raum{
     @Override
     public String toString(){
         int i;
-        String ausgabe;
-        ausgabe = "Raum " + getGeb() + "-" + getEtage() + "." + getRaum();
+        StringBuilder ausgabe;
+        ausgabe = new StringBuilder("Raum " + getGeb() + "-" + getEtage() + "." + getRaum());
         i = getAnzahlReservierungen();
         if (reservierungen[0] != null) {
             for (int p = 0; p < i; p++) {
-                ausgabe += getReservierung(p);
+                ausgabe.append(getReservierung(p));
             }
         } else {
-            ausgabe += "\n Es liegen keine Reservierungen vor.";
+            ausgabe.append("\n Es liegen keine Reservierungen vor.");
         }
-        return ausgabe;
+        return ausgabe.toString();
     }
 
     //Get-Methoden fuer Klassenattribute
