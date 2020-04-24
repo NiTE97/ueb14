@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 /**
  * Klasse Raum
@@ -35,6 +36,7 @@ public class Raum{
         this.geb = geb;
         this.etage = etage;
         this.raum = raum;
+        //ArrayList<Reservierung> reservierungen = new ArrayList<Reservierung>();   Könnte auch mit ArrayList geloest werden
         reservierungen = new Reservierung[maxReservierungen];
     }
     /**

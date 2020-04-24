@@ -5,7 +5,7 @@ import java.util.Objects;
  * 
  * Autor Niklas Terwort && Tobias Steuer
  */
-public class Person{
+public abstract class Person{
     /**
      * Klassenattribute
      */
